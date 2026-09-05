@@ -1,0 +1,70 @@
+<section id="about" class="users-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Role-Based Ecosystem</div>
+      <h2>Designed for Key Operational Roles & Institutions</h2>
+      <p>
+        SportFlow grants precise role-based access to fit your governance structure, whether you operate a municipal sports secretariat or a multi-club league.
+      </p>
+    </div>
+
+    <!-- Role Cards Grid -->
+    <div class="roles-grid">
+      @for (role of roles; track role.roleName) {
+        <div class="role-card">
+          <div class="role-header">
+            <div class="role-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                @switch (role.icon) {
+                  @case ('admin') {
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  }
+                  @case ('operator') {
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <polyline points="16 11 18 13 22 9"/>
+                  }
+                  @case ('auditor') {
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  }
+                }
+              </svg>
+            </div>
+            <span class="role-badge">{{ role.badge }}</span>
+          </div>
+
+          <h3 class="role-name">{{ role.roleName }}</h3>
+          <p class="role-desc">{{ role.description }}</p>
+
+          <div class="resp-list">
+            <div class="resp-title">Key Capabilities:</div>
+            @for (resp of role.responsibilities; track resp) {
+              <div class="resp-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span>{{ resp }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Target Institutions Pill Container -->
+    <div class="institutions-container">
+      <h3 class="inst-title">Trusted Ecosystem for Organizations Worldwide</h3>
+      <div class="inst-pills">
+        @for (inst of targetInstitutions; track inst) {
+          <span class="inst-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            {{ inst }}
+          </span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

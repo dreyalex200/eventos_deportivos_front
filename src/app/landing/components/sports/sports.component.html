@@ -1,0 +1,82 @@
+<section id="sports" class="sports-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Multi-Sport Capabilities</div>
+      <h2>Configure the Sports Your Organization Needs</h2>
+      <p>
+        SportFlow supports standard rules for major disciplines and is fully extensible to adapt to any sport, category, or tournament format.
+      </p>
+    </div>
+
+    <!-- Sports Grid -->
+    <div class="sports-grid">
+      @for (sport of sportsList; track sport.name) {
+        <div class="sport-card" [class]="sport.colorClass">
+          <div class="sport-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              @switch (sport.icon) {
+                @case ('football') {
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 7l3 3-1.5 4.5h-3L9 10z"/>
+                }
+                @case ('basketball') {
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M5.5 5.5A10 10 0 0 1 12 2a10 10 0 0 1 6.5 3.5"/>
+                  <path d="M2 12h20"/>
+                  <path d="M12 2v20"/>
+                }
+                @case ('volleyball') {
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 2a10 10 0 0 0 0 20"/>
+                  <path d="M2 12a10 10 0 0 0 20 0"/>
+                }
+                @case ('baseball') {
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M6 18A12 12 0 0 0 18 6"/>
+                  <path d="M6 6a12 12 0 0 1 12 12"/>
+                }
+                @case ('futsal') {
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="12 8 15 11 13.5 15 10.5 15 9 11 12 8"/>
+                }
+                @case ('custom') {
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="16"/>
+                  <line x1="8" y1="12" x2="16" y2="12"/>
+                }
+              }
+            </svg>
+          </div>
+
+          <h3 class="sport-name">{{ sport.name }}</h3>
+          <p class="sport-tagline">{{ sport.tagline }}</p>
+
+          <div class="modalities-list">
+            @for (modality of sport.modalities; track modality) {
+              <span class="modality-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {{ modality }}
+              </span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Extensibility Callout Banner -->
+    <div class="extensibility-banner">
+      <div class="banner-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M2 12h20"/>
+        </svg>
+      </div>
+      <div class="banner-content">
+        <h3>Need a Custom Discipline or Specialty Ruleset?</h3>
+        <p>Our platform architecture allows administrators to define custom scoring criteria, time limits, roster quotas, and match tiebreakers without needing custom code changes.</p>
+      </div>
+      <a href="#contact" class="btn btn-primary banner-btn">Request Custom Setup</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,165 @@
+.sports-section {
+  padding: 6rem 0;
+  background: var(--white);
+  border-top: 1px solid var(--neutral-200);
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sport-card {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  transition: var(--transition-normal);
+
+  &:hover {
+    background: var(--white);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+
+  .sport-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &.emerald {
+    &:hover { border-color: var(--emerald-500); }
+    .sport-icon { background: rgba(16, 185, 129, 0.12); color: var(--emerald-500); }
+  }
+
+  &.amber {
+    &:hover { border-color: var(--amber-500); }
+    .sport-icon { background: rgba(245, 158, 11, 0.12); color: var(--amber-500); }
+  }
+
+  &.blue {
+    &:hover { border-color: var(--accent-500); }
+    .sport-icon { background: rgba(37, 99, 235, 0.12); color: var(--accent-500); }
+  }
+
+  &.teal {
+    &:hover { border-color: var(--teal-500); }
+    .sport-icon { background: rgba(13, 148, 136, 0.12); color: var(--teal-500); }
+  }
+
+  &.cyan {
+    &:hover { border-color: var(--cyan-500); }
+    .sport-icon { background: rgba(6, 182, 212, 0.12); color: var(--cyan-500); }
+  }
+
+  &.purple {
+    &:hover { border-color: #8b5cf6; }
+    .sport-icon { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+  }
+
+  .sport-name {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: 0.375rem;
+  }
+
+  .sport-tagline {
+    font-size: 0.875rem;
+    color: var(--neutral-500);
+    margin-bottom: 1.25rem;
+  }
+
+  .modalities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .modality-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--neutral-700);
+    background: var(--white);
+    border: 1px solid var(--neutral-200);
+    padding: 0.25rem 0.625rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+
+    svg {
+      color: var(--accent-500);
+    }
+  }
+}
+
+.extensibility-banner {
+  background: linear-gradient(135deg, var(--neutral-900) 0%, var(--neutral-800) 100%);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .banner-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--cyan-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg { width: 28px; height: 28px; }
+  }
+
+  .banner-content {
+    flex: 1;
+
+    h3 {
+      font-size: 1.375rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      color: var(--neutral-300);
+      max-width: 720px;
+    }
+  }
+
+  .banner-btn {
+    white-space: nowrap;
+  }
+}

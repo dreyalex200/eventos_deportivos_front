@@ -1,0 +1,156 @@
+.users-section {
+  padding: 6rem 0;
+  background: var(--white);
+  border-top: 1px solid var(--neutral-200);
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.role-card {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--border-radius-lg);
+  padding: 2.25rem 1.75rem;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    border-color: var(--accent-500);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+    background: var(--white);
+
+    .role-icon {
+      background: var(--accent-500);
+      color: var(--white);
+    }
+  }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .role-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+
+      svg { width: 26px; height: 26px; }
+    }
+
+    .role-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--neutral-600);
+      background: var(--neutral-200);
+      padding: 0.25rem 0.625rem;
+      border-radius: 6px;
+    }
+  }
+
+  .role-name {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: 0.75rem;
+  }
+
+  .role-desc {
+    font-size: 0.9375rem;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .resp-list {
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--neutral-200);
+
+    .resp-title {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--neutral-500);
+      margin-bottom: 0.75rem;
+    }
+
+    .resp-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--neutral-700);
+      margin-bottom: 0.5rem;
+
+      svg {
+        color: var(--emerald-500);
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+.institutions-container {
+  background: var(--neutral-900);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--white);
+
+  .inst-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .inst-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.875rem;
+  }
+
+  .inst-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-pill);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--neutral-200);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+
+    &:hover {
+      background: rgba(37, 99, 235, 0.25);
+      border-color: var(--accent-400);
+      color: var(--white);
+    }
+
+    svg {
+      color: var(--accent-400);
+    }
+  }
+}

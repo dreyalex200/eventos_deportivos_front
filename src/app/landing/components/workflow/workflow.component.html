@@ -1,0 +1,27 @@
+<section class="workflow-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Streamlined Process</div>
+      <h2>Clear 10-Step Competition Workflow</h2>
+      <p>
+        From initial setup to final trophy presentation, SportFlow guides event organizers through a intuitive operational pipeline.
+      </p>
+    </div>
+
+    <!-- Timeline Grid -->
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      <div class="steps-grid">
+        @for (step of steps; track step.num) {
+          <div class="timeline-card">
+            <div class="step-badge">{{ step.num }}</div>
+            <div class="card-content">
+              <h3 class="step-title">{{ step.title }}</h3>
+              <p class="step-desc">{{ step.desc }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

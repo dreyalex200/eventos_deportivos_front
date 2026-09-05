@@ -1,0 +1,33 @@
+<section class="competition-types-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Versatile Competition Engine</div>
+      <h2>Tailored Competition Models for Every Organization</h2>
+      <p>
+        Whether organizing municipal youth games, university leagues, or national federation championships, SportFlow adapts to your specific tournament format.
+      </p>
+    </div>
+
+    <div class="models-grid">
+      @for (model of competitionModels; track model.title) {
+        <div class="model-card">
+          <span class="category-pill">{{ model.category }}</span>
+          <h3 class="model-title">{{ model.title }}</h3>
+          <p class="model-desc">{{ model.description }}</p>
+          
+          <div class="features-list">
+            @for (feat of model.features; track feat) {
+              <div class="feat-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <span>{{ feat }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

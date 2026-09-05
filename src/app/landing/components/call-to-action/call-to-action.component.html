@@ -1,0 +1,50 @@
+<section id="contact" class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="cta-glow"></div>
+      
+      <div class="cta-content">
+        <div class="section-badge badge-white">Transform Your Tournaments</div>
+        
+        <h2 class="cta-title">Ready to Take Control of Your Sports Competitions?</h2>
+        
+        <p class="cta-desc">
+          Organize events, teams, participants, schedules, venues, and results from one centralized platform built for modern sports governance.
+        </p>
+
+        @if (!isFormSubmitted()) {
+          <form class="cta-form" (submit)="onSubmit($event)">
+            <div class="input-group">
+              <input 
+                type="email" 
+                placeholder="Enter your institutional or work email..." 
+                required 
+                aria-label="Work Email Address">
+              <button type="submit" class="btn btn-primary">
+                Get Started
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+            <div class="cta-micro">
+              <span>&check; Institutional Demo Available</span>
+              <span>&check; No Credit Card Required</span>
+              <span>&check; Multi-Sport Setup</span>
+            </div>
+          </form>
+        } @else {
+          <div class="thank-you-box">
+            <div class="check-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24" height="24">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3>Thank you for your interest!</h3>
+            <p>Our sports operations specialist will reach out to schedule an institutional platform walkthrough.</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

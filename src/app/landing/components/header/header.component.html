@@ -3,8 +3,9 @@
     <!-- Brand Logo -->
     <a href="#" class="brand" (click)="closeMobileMenu()">
       <div class="brand-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
         </svg>
       </div>
       <div class="brand-text">
@@ -25,18 +26,15 @@
 
     <!-- Header Actions -->
     <div class="header-actions">
-      <a href="#contact" class="btn btn-primary nav-cta">
-        Get Started
+      <a routerLink="/login" class="btn btn-primary nav-cta">
+        Login
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
+          <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </a>
 
       <!-- Mobile Hamburger Toggle -->
-      <button 
-        class="mobile-toggle" 
-        [ngClass]="{ 'active': isMobileMenuOpen() }"
-        (click)="toggleMobileMenu()" 
+      <button class="mobile-toggle" [ngClass]="{ 'active': isMobileMenuOpen() }" (click)="toggleMobileMenu()"
         aria-label="Toggle Navigation Menu">
         <span></span>
         <span></span>
@@ -55,8 +53,8 @@
       <a href="#about" (click)="closeMobileMenu()">About Platform</a>
       <a href="#contact" (click)="closeMobileMenu()">Contact</a>
       <div class="mobile-cta-wrapper">
-        <a href="#contact" class="btn btn-primary full-width" (click)="closeMobileMenu()">
-          Get Started
+        <a routerLink="/login" class="btn btn-primary full-width" (click)="closeMobileMenu()">
+          Login
         </a>
       </div>
     </nav>

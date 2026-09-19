@@ -327,3 +327,62 @@
     }
   }
 }
+
+.admin-nav-tabs-bar {
+  background: #ffffff;
+  border-top: 1px solid var(--neutral-100);
+  margin-top: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.admin-nav-tabs-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.dashboard-nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+
+  .tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.15rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--neutral-600);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      color: var(--neutral-900);
+      background: var(--neutral-50);
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    &.active {
+      color: var(--accent-600);
+      border-bottom-color: var(--accent-600);
+    }
+
+    .tab-pill {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent-600);
+    }
+  }
+}
+

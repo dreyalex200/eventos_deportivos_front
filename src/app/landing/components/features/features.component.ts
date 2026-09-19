@@ -18,58 +18,58 @@ export class FeaturesComponent {
   featuresList: FeatureItem[] = [
     {
       id: 'sports-competitions',
-      title: 'Sports & Competitions',
-      description: 'Configure sports, modalities, competition types, categories, and tournament structures with maximum flexibility.',
-      badge: 'Core Engine',
+      title: 'Deportes y Competencias',
+      description: 'Configura deportes, modalidades, tipos de competencia, categorías y estructuras de torneo con máxima flexibilidad.',
+      badge: 'Motor Principal',
       icon: 'sports'
     },
     {
       id: 'teams-participants',
-      title: 'Teams & Participants',
-      description: 'Manage teams, players, technical staff, coaches, assistants, delegates, and comprehensive participant profiles.',
-      badge: 'Roster Control',
+      title: 'Equipos y Participantes',
+      description: 'Gestiona equipos, jugadores, cuerpo técnico, entrenadores, asistentes, delegados y perfiles integrales de participantes.',
+      badge: 'Control de Nóminas',
       icon: 'teams'
     },
     {
       id: 'registration-management',
-      title: 'Registration Management',
-      description: 'Streamline team and individual participant registrations according to the specific rules defined per competition.',
-      badge: 'Workflows',
+      title: 'Gestión de Inscripciones',
+      description: 'Optimiza las inscripciones de equipos y participantes individuales según las reglas específicas de cada competencia.',
+      badge: 'Flujos Ágiles',
       icon: 'registration'
     },
     {
       id: 'tournament-rules',
-      title: 'Tournament Rules',
-      description: 'Configure competition rules, age restrictions, gender categories, registration windows, quotas, and document requirements.',
+      title: 'Reglamentos de Torneo',
+      description: 'Configura reglas de competencia, restricciones de edad, categorías por género, períodos de inscripción, cupos y requisitos documentales.',
       badge: 'Configurable',
       icon: 'rules'
     },
     {
       id: 'scheduling',
-      title: 'Scheduling & Match Programming',
-      description: 'Plan matches, dates, times, venues, fields, courts, and tournament phases while automatically preventing scheduling conflicts.',
-      badge: 'Automation',
+      title: 'Programación y Calendario',
+      description: 'Planifica partidos, fechas, horarios, sedes, canchas y fases de torneo evitando cruces de horario de forma automática.',
+      badge: 'Automatización',
       icon: 'scheduling'
     },
     {
       id: 'sports-venues',
-      title: 'Sports Venues',
-      description: 'Manage sports facilities, courts, pitches, stadium availability, and assign venues based on competition needs.',
-      badge: 'Facilities',
+      title: 'Sedes Deportivas',
+      description: 'Administra instalaciones deportivas, canchas, campos, disponibilidad de escenarios y asigna sedes según las necesidades de la competencia.',
+      badge: 'Instalaciones',
       icon: 'venues'
     },
     {
       id: 'results-standings',
-      title: 'Results & Standings',
-      description: 'Record match outcomes, maintain live classifications, track tournament phases, leaderboards, and competition progress.',
-      badge: 'Live Data',
+      title: 'Resultados y Clasificaciones',
+      description: 'Registra resultados de partidos, mantén clasificaciones en vivo, realiza seguimiento de fases, tablas de líderes y avance de torneos.',
+      badge: 'Datos en Vivo',
       icon: 'results'
     },
     {
       id: 'audit-traceability',
-      title: 'Audit & Traceability',
-      description: 'Maintain a complete operational history, audit logs of modifications, participant status changes, and administrator actions.',
-      badge: 'Security',
+      title: 'Auditoría y Trazabilidad',
+      description: 'Conserva un historial operativo completo, registros de modificaciones, cambios de estado de participantes y acciones administrativas.',
+      badge: 'Seguridad',
       icon: 'audit'
     }
   ];

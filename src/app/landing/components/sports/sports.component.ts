@@ -17,44 +17,44 @@ interface SportCard {
 export class SportsComponent {
   sportsList: SportCard[] = [
     {
-      name: 'Football (Soccer)',
-      tagline: '11v11, 7v7, Beach Football',
-      modalities: ['Group Stage', 'Single Elimination', 'League System'],
+      name: 'Fútbol',
+      tagline: '11 vs 11, Fútbol 7, Fútbol Playa',
+      modalities: ['Fase de Grupos', 'Eliminación Directa', 'Sistema de Liga'],
       icon: 'football',
       colorClass: 'emerald'
     },
     {
-      name: 'Basketball',
-      tagline: '5v5 Traditional, 3x3 Streetball',
-      modalities: ['Quarter System', 'Playoff Brackets', 'Points Table'],
+      name: 'Baloncesto',
+      tagline: '5 vs 5 Tradicional, Baloncesto 3x3',
+      modalities: ['Sistema por Cuartos', 'Llaves de Playoff', 'Tabla de Puntos'],
       icon: 'basketball',
       colorClass: 'amber'
     },
     {
-      name: 'Volleyball',
-      tagline: 'Indoor, Beach Volleyball',
-      modalities: ['Set Scoring', 'Rally Point System', 'Tournament Phases'],
+      name: 'Voleibol',
+      tagline: 'Voleibol de Sala, Voleibol de Playa',
+      modalities: ['Puntuación por Sets', 'Punto por Rally', 'Fases de Torneo'],
       icon: 'volleyball',
       colorClass: 'blue'
     },
     {
-      name: 'Baseball',
-      tagline: 'Standard Baseball, Softball',
-      modalities: ['Inning Config', 'Double Elimination', 'Series Bracket'],
+      name: 'Béisbol',
+      tagline: 'Béisbol Estándar, Sóftbol',
+      modalities: ['Configuración por Entradas', 'Doble Eliminación', 'Serie al Mejor'],
       icon: 'baseball',
       colorClass: 'teal'
     },
     {
       name: 'Futsal',
-      tagline: 'Indoor 5v5 Hardcourt',
-      modalities: ['Accumulated Fouls', 'Stop-clock Timer', 'Group Knockout'],
+      tagline: 'Fútbol de Salón 5 vs 5',
+      modalities: ['Faltas Acumuladas', 'Cronómetro con Paradas', 'Grupos y Eliminación'],
       icon: 'futsal',
       colorClass: 'cyan'
     },
     {
-      name: 'Custom & Extensible',
-      tagline: 'Track & Field, Swimming, Tennis, etc.',
-      modalities: ['Individual Meets', 'Custom Scoring', 'Flexible Metrics'],
+      name: 'Personalizado y Extensible',
+      tagline: 'Atletismo, Natación, Tenis y más',
+      modalities: ['Encuentros Individuales', 'Puntuación Personalizada', 'Métricas Flexibles'],
       icon: 'custom',
       colorClass: 'purple'
     }

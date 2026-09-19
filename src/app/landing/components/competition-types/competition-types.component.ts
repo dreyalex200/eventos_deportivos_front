@@ -16,52 +16,52 @@ interface CompetitionModel {
 export class CompetitionTypesComponent {
   competitionModels: CompetitionModel[] = [
     {
-      title: 'Municipal Competitions',
-      category: 'Public Administration',
-      description: 'City-wide sports leagues organized by local sports directorates and municipal governments.',
-      features: ['District venue routing', 'Public registration portals', 'Age bracket control']
+      title: 'Competencias Municipales',
+      category: 'Administración Pública',
+      description: 'Ligas deportivas de ámbito local organizadas por secretarías de deportes y alcaldías municipales.',
+      features: ['Distribución por escenarios barriales', 'Portales públicos de inscripción', 'Control estricto de edades']
     },
     {
-      title: 'Inter-School & Academic Games',
-      category: 'Education Sector',
-      description: 'Primary, secondary, and university tournaments with school affiliation verification.',
-      features: ['Student roster verification', 'Academic eligibility rules', 'Institutional delegates']
+      title: 'Juegos Intercolegiados y Universitarios',
+      category: 'Sector Educativo',
+      description: 'Torneos escolares, intercolegiales y universitarios con verificación de matrícula y afiliación institucional.',
+      features: ['Verificación de nóminas estudiantiles', 'Reglas de elegibilidad académica', 'Gestión de delegados escolares']
     },
     {
-      title: 'Federated & Official League Tournaments',
-      category: 'Sports Federations',
-      description: 'High-level competitions adhering to official state or national federation rules and referee audits.',
-      features: ['Official player licensing', 'Disciplinary tracking', 'National standings']
+      title: 'Torneos Federados y Ligas Oficiales',
+      category: 'Federaciones Deportivas',
+      description: 'Competencias de alto rendimiento bajo normativas oficiales de federaciones nacionales y auditoría arbitral.',
+      features: ['Licenciamiento oficial de jugadores', 'Seguimiento disciplinario', 'Tablas de clasificación nacional']
     },
     {
-      title: 'Institutional & Government Games',
-      category: 'Public Sector',
-      description: 'Multi-discipline athletic meets for public employees, armed forces, or municipal workers.',
-      features: ['Departmental scoring', 'Multi-sport medal tallies', 'Entity verification']
+      title: 'Juegos Institucionales y del Estado',
+      category: 'Sector Público',
+      description: 'Encuentros multidisciplinarios para servidores públicos, fuerzas de seguridad o dependencias estatales.',
+      features: ['Puntaje por dependencias', 'Medallero multideportivo', 'Acreditación institucional']
     },
     {
-      title: 'Corporate & Business Leagues',
-      category: 'Private Companies',
-      description: 'Internal or inter-company recreation tournaments designed to promote wellness and team spirit.',
-      features: ['Employee ID validation', 'After-work fixture schedules', 'Sponsor branding']
+      title: 'Ligas Empresariales y Corporativas',
+      category: 'Empresas Privadas',
+      description: 'Torneos de integración laboral diseñados para promover el bienestar, la salud y el trabajo en equipo.',
+      features: ['Validación de identificación laboral', 'Programación en horarios no laborales', 'Imagen y patrocinio corporativo']
     },
     {
-      title: 'Open Public Tournaments',
-      category: 'Community Sports',
-      description: 'Community-driven open tournaments accessible to independent clubs, neighborhood teams, and enthusiasts.',
-      features: ['Online team self-registration', 'Fee management tags', 'Bracket generators']
+      title: 'Torneos Abiertos Comunitarios',
+      category: 'Deporte Social y Barrial',
+      description: 'Competencias comunitarias abiertas para clubes independientes, equipos aficionados y entusiastas del deporte.',
+      features: ['Autogestión de inscripción de equipos', 'Control de pagos de participación', 'Generación ágil de llaves y cuadros']
     },
     {
-      title: 'Regional & Interstate Championships',
-      category: 'Multi-Region',
-      description: 'Large scale inter-city or regional tournaments involving travel, multiple host venues, and complex phases.',
-      features: ['Multi-venue programming', 'Travel accommodation logs', 'Phase advancement']
+      title: 'Campeonatos Regionales e Interdepartamentales',
+      category: 'Multirregional',
+      description: 'Grandes eventos que involucran desplazamientos entre municipios, múltiples sedes anfitrionas y fases sucesivas.',
+      features: ['Programación multisede', 'Control de logística y desplazamientos', 'Avance automático entre fases']
     },
     {
-      title: 'Custom Hybrid Competitions',
-      category: 'Tailored Formats',
-      description: 'Special exhibition cups, charity matches, or hybrid round-robin plus knockout systems.',
-      features: ['Custom scoring formulas', 'Configurable round logic', 'Tailored rulesets']
+      title: 'Competencias Híbridas a Medida',
+      category: 'Formatos Personalizados',
+      description: 'Copas de exhibición, eventos benéficos o sistemas híbridos de fase de grupos con llaves de eliminación directa.',
+      features: ['Fórmulas personalizadas de puntuación', 'Lógica flexible de rondas', 'Reglamentos a la medida']
     }
   ];
 }

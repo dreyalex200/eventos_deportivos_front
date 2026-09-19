@@ -11,7 +11,7 @@
           </div>
           <span class="brand-name">SportFlow</span>
         </a>
-        <span class="admin-badge">Admin Center</span>
+        <span class="admin-badge">Centro de Administración</span>
       </div>
 
       <div class="user-session-bar">
@@ -38,7 +38,7 @@
             <polyline points="16 17 21 12 16 7"></polyline>
             <line x1="21" y1="12" x2="9" y2="12"></line>
           </svg>
-          <span>Sign Out</span>
+          <span>Cerrar Sesión</span>
         </button>
       </div>
     </div>
@@ -46,7 +46,7 @@
     <!-- Navigation Tabs Bar -->
     <div class="admin-nav-tabs-bar">
       <div class="admin-nav-tabs-inner">
-        <nav class="dashboard-nav-tabs" aria-label="Dashboard Navigation">
+        <nav class="dashboard-nav-tabs" aria-label="Navegación del Panel de Control">
           <button
             type="button"
             class="tab-btn"
@@ -60,7 +60,24 @@
               <rect x="14" y="14" width="7" height="7"></rect>
               <rect x="3" y="14" width="7" height="7"></rect>
             </svg>
-            <span>Overview & Modules</span>
+            <span>Vista General y Módulos</span>
+          </button>
+
+          <button
+            type="button"
+            class="tab-btn"
+            [class.active]="currentTab() === 'events'"
+            (click)="setTab('events')"
+            id="tab-events"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Gestión de Eventos</span>
+            <span class="tab-pill">CRUD</span>
           </button>
 
           <button
@@ -76,7 +93,7 @@
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
-            <span>User Management</span>
+            <span>Gestión de Usuarios</span>
             <span class="tab-pill">PBAC</span>
           </button>
         </nav>
@@ -93,18 +110,18 @@
           <div class="welcome-info">
             <div class="status-indicator">
               <span class="pulse-dot"></span>
-              <span>Session Active & Authenticated</span>
+              <span>Sesión Activa y Autenticada</span>
             </div>
-            <h1>Welcome, Administrator</h1>
-            <p>You have full administrative privileges to oversee competitions, events, participant eligibility, and audit logs.</p>
+            <h1>Bienvenido, Administrador</h1>
+            <p>Dispone de privilegios administrativos completos para supervisar competencias, eventos, elegibilidad de participantes y registros de auditoría.</p>
           </div>
           <div class="session-stats">
             <div class="stat-box">
-              <span class="stat-label">Security Role</span>
+              <span class="stat-label">Rol de Seguridad</span>
               <span class="stat-value">ROLE_ADMIN</span>
             </div>
             <div class="stat-box">
-              <span class="stat-label">Authentication Type</span>
+              <span class="stat-label">Tipo de Autenticación</span>
               <span class="stat-value">JWT Bearer (24h)</span>
             </div>
           </div>
@@ -112,9 +129,9 @@
 
         <!-- Quick Action Modules -->
         <section class="admin-modules">
-          <h2 class="section-title">Administrative Modules</h2>
+          <h2 class="section-title">Módulos Administrativos</h2>
           <div class="modules-grid">
-            <div class="module-card">
+            <div class="module-card" (click)="setTab('events')" style="cursor: pointer;">
               <div class="card-icon event-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -123,9 +140,12 @@
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
               </div>
-              <h3>Sports Events Management</h3>
-              <p>Create, update, schedule and manage sports tournaments and championship brackets.</p>
-              <span class="module-status active">Endpoint: /api/v1/events</span>
+              <h3>Gestión de Eventos Deportivos</h3>
+              <p>Crear, actualizar, programar y administrar torneos deportivos y cuadros eliminatorios.</p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="module-status active">Endpoint: /api/v1/events</span>
+                <span class="link-label" style="font-size: 0.8125rem; font-weight: 600; color: var(--accent-600);">Abrir Módulo &rarr;</span>
+              </div>
             </div>
 
             <div class="module-card" (click)="setTab('users')" style="cursor: pointer;">
@@ -137,11 +157,11 @@
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
               </div>
-              <h3>Participant Eligibility & Rosters</h3>
-              <p>Create operators, query user profiles by ID, and verify account active status.</p>
+              <h3>Elegibilidad de Participantes y Nóminas</h3>
+              <p>Crear operadores, consultar perfiles de usuarios por ID y verificar el estado de las cuentas.</p>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="module-status active">Endpoint: /api/v1/users</span>
-                <span class="link-label" style="font-size: 0.8125rem; font-weight: 600; color: var(--accent-600);">Open Module &rarr;</span>
+                <span class="link-label" style="font-size: 0.8125rem; font-weight: 600; color: var(--accent-600);">Abrir Módulo &rarr;</span>
               </div>
             </div>
 
@@ -155,12 +175,14 @@
                   <polyline points="10 9 9 9 8 9"></polyline>
                 </svg>
               </div>
-              <h3>Audit Trails & Security Logs</h3>
-              <p>Real-time audit records tracking administrator operations and system modifications.</p>
-              <span class="module-status active">Secured with RBAC</span>
+              <h3>Pistas de Auditoría y Registros de Seguridad</h3>
+              <p>Registros de auditoría en tiempo real sobre operaciones administrativas y modificaciones del sistema.</p>
+              <span class="module-status active">Protegido con RBAC</span>
             </div>
           </div>
         </section>
+      } @else if (currentTab() === 'events') {
+        <app-events />
       } @else if (currentTab() === 'users') {
         <app-users />
       }

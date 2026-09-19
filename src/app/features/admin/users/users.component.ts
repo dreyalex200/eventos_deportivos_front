@@ -79,9 +79,9 @@ export class UsersComponent implements OnInit {
         if (err.error?.error?.details) {
           this.profileError.set(err.error.error.details);
         } else if (err.status === 401) {
-          this.profileError.set('Authentication required to view profile.');
+          this.profileError.set('Se requiere autenticación para ver el perfil.');
         } else {
-          this.profileError.set('Failed to load profile details. Please try again.');
+          this.profileError.set('Error al cargar los detalles del perfil. Por favor, intente nuevamente.');
         }
       }
     });
@@ -127,7 +127,7 @@ export class UsersComponent implements OnInit {
     this.userService.createUser(payload).subscribe({
       next: (res) => {
         this.isSubmitting.set(false);
-        this.formSuccess.set(`User "${res.data.username}" (ID: ${res.data.id}) created successfully.`);
+        this.formSuccess.set(`Usuario "${res.data.username}" (ID: ${res.data.id}) creado exitosamente.`);
         this.addUserToManagedList(res.data);
         setTimeout(() => {
           this.closeCreateModal();
@@ -138,13 +138,13 @@ export class UsersComponent implements OnInit {
         if (err.error?.error?.details) {
           this.formError.set(err.error.error.details);
         } else if (err.status === 409) {
-          this.formError.set('A user with this username or email already exists.');
+          this.formError.set('Ya existe un usuario con este nombre de usuario o correo electrónico.');
         } else if (err.status === 403) {
-          this.formError.set('Forbidden: You do not have the required USERS_CREATE permission.');
+          this.formError.set('Acceso denegado: No tiene el permiso USERS_CREATE requerido.');
         } else if (err.status === 400) {
-          this.formError.set('Validation error: Please verify the submitted information.');
+          this.formError.set('Error de validación: Por favor, verifique la información enviada.');
         } else {
-          this.formError.set('Failed to create user. Please check the network connection and try again.');
+          this.formError.set('Error al crear el usuario. Por favor, verifique la conexión de red e intente nuevamente.');
         }
       }
     });
@@ -153,7 +153,7 @@ export class UsersComponent implements OnInit {
   onSearchById(idString: string): void {
     const id = parseInt(idString, 10);
     if (isNaN(id) || id <= 0) {
-      this.lookupError.set('Please provide a valid numeric user ID.');
+      this.lookupError.set('Por favor ingrese un ID de usuario numérico válido.');
       this.lookupResult.set(null);
       return;
     }
@@ -174,11 +174,11 @@ export class UsersComponent implements OnInit {
       error: (err) => {
         this.isLookupLoading.set(false);
         if (err.status === 404) {
-          this.lookupError.set(`User with ID ${id} was not found.`);
+          this.lookupError.set(`No se encontró el usuario con ID ${id}.`);
         } else if (err.error?.error?.details) {
           this.lookupError.set(err.error.error.details);
         } else {
-          this.lookupError.set(`Unable to retrieve user ${id}.`);
+          this.lookupError.set(`No se pudo obtener el usuario ${id}.`);
         }
       }
     });
@@ -195,6 +195,6 @@ export class UsersComponent implements OnInit {
   }
 
   getStatusLabel(status: number): string {
-    return status === 1 ? 'Active' : 'Inactive';
+    return status === 1 ? 'Activo' : 'Inactivo';
   }
 }

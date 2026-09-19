@@ -6,6 +6,7 @@ import { AdminDashboardComponent } from './admin-dashboard.component';
 import { AuthService } from '../../core/services/auth.service';
 import { AuthorizationService } from '../../core/services/authorization.service';
 import { UserService } from '../../core/services/user.service';
+import { EventService } from '../../core/services/event.service';
 
 describe('AdminDashboardComponent', () => {
   let component: AdminDashboardComponent;
@@ -24,7 +25,8 @@ describe('AdminDashboardComponent', () => {
         ]),
         AuthService,
         AuthorizationService,
-        UserService
+        UserService,
+        EventService
       ]
     }).compileComponents();
 
@@ -38,8 +40,10 @@ describe('AdminDashboardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should default to overview tab and allow switching to users tab', () => {
+  it('should default to overview tab and allow switching between tabs', () => {
     expect(component.currentTab()).toBe('overview');
+    component.setTab('events');
+    expect(component.currentTab()).toBe('events');
     component.setTab('users');
     expect(component.currentTab()).toBe('users');
     component.setTab('overview');

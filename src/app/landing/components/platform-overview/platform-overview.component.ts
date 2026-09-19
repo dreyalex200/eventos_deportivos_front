@@ -17,50 +17,50 @@ export class PlatformOverviewComponent {
   lifecycleSteps: LifecycleStep[] = [
     {
       stepNumber: '01',
-      title: 'Planning',
-      description: 'Define tournament scope, competition structure, categories, and institutional objectives.',
+      title: 'Planificación',
+      description: 'Define el alcance del torneo, estructura de competencia, categorías y objetivos institucionales.',
       icon: 'planning'
     },
     {
       stepNumber: '02',
-      title: 'Configuration',
-      description: 'Establish custom age limits, gender categories, documentation rules, and participant quotas.',
+      title: 'Configuración',
+      description: 'Establece límites de edad personalizados, divisiones por género, reglas de documentación y cupos de participantes.',
       icon: 'configuration'
     },
     {
       stepNumber: '03',
-      title: 'Registration',
-      description: 'Streamlined online roster submission for teams, players, coaches, delegates, and staff.',
+      title: 'Inscripción',
+      description: 'Registro ágil en línea de nóminas para equipos, jugadores, entrenadores, delegados y cuerpo técnico.',
       icon: 'registration'
     },
     {
       stepNumber: '04',
-      title: 'Validation',
-      description: 'Auditors and operators review uploaded legal documents, age eligibility, and institutional credentials.',
+      title: 'Validación',
+      description: 'Auditores y operadores revisan documentos legales cargados, elegibilidad por edad y credenciales institucionales.',
       icon: 'validation'
     },
     {
       stepNumber: '05',
-      title: 'Scheduling',
-      description: 'Automatic or manual match programming across venues, fields, and dates without conflicts.',
+      title: 'Programación',
+      description: 'Programación automática o manual de partidos entre sedes, canchas y fechas sin cruces de horario.',
       icon: 'scheduling'
     },
     {
       stepNumber: '06',
-      title: 'Competition',
-      description: 'Live tournament execution, referee assignment, pitch control, and phase advancement.',
+      title: 'Competencia',
+      description: 'Ejecución del torneo en vivo, asignación de árbitros, control de campo y avance de fases.',
       icon: 'competition'
     },
     {
       stepNumber: '07',
-      title: 'Results',
-      description: 'Official score registration, goal tracking, sanctions, and instant group standings update.',
+      title: 'Resultados',
+      description: 'Registro oficial de marcadores, seguimiento de goles, sanciones y actualización instantánea de tablas de posiciones.',
       icon: 'results'
     },
     {
       stepNumber: '08',
-      title: 'Reporting',
-      description: 'Comprehensive historical logs, institutional trace audits, and printable competition certificates.',
+      title: 'Reportes',
+      description: 'Historial operativo completo, auditoría de trazabilidad institucional y certificados oficiales de competencia.',
       icon: 'reporting'
     }
   ];

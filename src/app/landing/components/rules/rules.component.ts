@@ -17,45 +17,45 @@ interface RuleCard {
 export class RulesComponent {
   rulesList: RuleCard[] = [
     {
-      title: 'Registration Windows',
-      subtitle: 'Strict Start & End Timelines',
-      exampleText: 'Enforce automatic system lockouts after registration deadlines pass to ensure zero late entries.',
-      tags: ['Opening Date', 'Closing Date', 'Late Registration Fees'],
+      title: 'Ventanas de Inscripción',
+      subtitle: 'Plazos Estrictos de Inicio y Cierre',
+      exampleText: 'Aplique bloqueos automáticos del sistema una vez vencidos los plazos de inscripción para garantizar cero registros extemporáneos.',
+      tags: ['Fecha de Apertura', 'Fecha de Cierre', 'Tarifas Extraordinarias'],
       icon: 'windows'
     },
     {
-      title: 'Age & Gender Categories',
-      subtitle: 'Eligibility Verification',
-      exampleText: 'Define exact birthdate brackets (e.g. Under-16, Senior, Master 40+) and male, female, or mixed categories.',
-      tags: ['Sub-14', 'Sub-18', 'Open Category', 'Mixed Doubles'],
+      title: 'Categorías por Edad y Género',
+      subtitle: 'Verificación de Elegibilidad',
+      exampleText: 'Defina rangos exactos por fecha de nacimiento (p. ej., Sub-16, Mayores, Máster 40+) y ramas masculina, femenina o mixta.',
+      tags: ['Sub-14', 'Sub-18', 'Categoría Libre', 'Dobles Mixtos'],
       icon: 'eligibility'
     },
     {
-      title: 'Roster Limits & Technical Staff',
-      subtitle: 'Min & Max Player Rules',
-      exampleText: 'Set strict minimum roster size (e.g., min 11 players) and required staff (Head Coach, Assistant, Medic).',
-      tags: ['Min 11 / Max 22', 'Coach License Required', 'Medic Mandatory'],
+      title: 'Límites de Nómina y Cuerpo Técnico',
+      subtitle: 'Reglas de Mínimos y Máximos de Jugadores',
+      exampleText: 'Establezca tamaños mínimos estrictos de plantilla (p. ej., mín. 11 jugadores) y cuerpo técnico requerido (Director Técnico, Asistente, Médico).',
+      tags: ['Mín 11 / Máx 22', 'Licencia de DT Requerida', 'Médico Obligatorio'],
       icon: 'roster'
     },
     {
-      title: 'Required Documentation',
-      subtitle: 'Legal & Medical Compliance',
-      exampleText: 'Mandate digital document uploads: National ID card, medical fitness clearance, photo, and parental consent.',
-      tags: ['ID Upload', 'Medical Fitness Certificate', 'Parental Waiver'],
+      title: 'Documentación Requerida',
+      subtitle: 'Cumplimiento Legal y Médico',
+      exampleText: 'Exija la carga de documentos digitales: documento de identidad, certificado médico de aptitud, fotografía y consentimiento parental.',
+      tags: ['Carga de Documento', 'Certificado Médico', 'Autorización Parental'],
       icon: 'docs'
     },
     {
-      title: 'Institutional Affiliation',
-      subtitle: 'Schools, Universities & Clubs',
-      exampleText: 'Validate student enrollment certificates, university IDs, or municipal affiliation credentials before approval.',
-      tags: ['School Code', 'Student ID', 'Municipal Registry'],
+      title: 'Afiliación Institucional',
+      subtitle: 'Colegios, Universidades y Clubes',
+      exampleText: 'Valide constancias de matrícula estudiantil, carnés universitarios o credenciales de afiliación municipal antes de la aprobación.',
+      tags: ['Código Institucional', 'Carné Estudiantil', 'Registro Municipal'],
       icon: 'affiliation'
     },
     {
-      title: 'Competition Phases & Sponsors',
-      subtitle: 'Format & Branding Rules',
-      exampleText: 'Configure group stage tiebreakers (goal difference, head-to-head) and assign tournament sponsors to scorecards.',
-      tags: ['Goal Difference Rule', 'Yellow Card Audit', 'Sponsor Banners'],
+      title: 'Fases de Competencia y Patrocinadores',
+      subtitle: 'Reglas de Formato e Imagen',
+      exampleText: 'Configure criterios de desempate en fase de grupos (diferencia de gol, enfrentamiento directo) y asigne patrocinadores a las planillas oficiales.',
+      tags: ['Diferencia de Gol', 'Control de Tarjetas', 'Banners de Patrocinador'],
       icon: 'phases'
     }
   ];

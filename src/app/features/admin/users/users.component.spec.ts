@@ -160,7 +160,7 @@ describe('UsersComponent', () => {
       roles: ['OPERATOR']
     });
 
-    expect(component.formSuccess()).toContain('created successfully');
+    expect(component.formSuccess()).toContain('creado exitosamente');
     expect(component.managedUsers().some(u => u.id === 2)).toBe(true);
   });
 
@@ -240,7 +240,7 @@ describe('UsersComponent', () => {
 
     component.onSearchById('999');
 
-    expect(component.lookupError()).toBe('User with ID 999 was not found.');
+    expect(component.lookupError()).toBe('No se encontró el usuario con ID 999.');
     expect(component.lookupResult()).toBeNull();
   });
 

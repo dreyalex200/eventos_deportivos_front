@@ -5,19 +5,19 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./landing/landing.component').then(m => m.LandingComponent),
-    title: 'Sports Events Management Platform | Manage Competitions, Teams and Tournaments'
+    title: 'Plataforma de Gestión de Eventos Deportivos | Administra Competencias, Equipos y Torneos'
   },
   {
     path: 'login',
     canActivate: [guestGuard],
     loadComponent: () => import('./features/auth/login/login.component').then(m => m.LoginComponent),
-    title: 'Login | SportFlow Events Platform'
+    title: 'Iniciar Sesión | SportFlow Plataforma de Eventos'
   },
   {
     path: 'admin',
     canActivate: [authGuard],
     loadComponent: () => import('./features/admin/admin-dashboard.component').then(m => m.AdminDashboardComponent),
-    title: 'Admin Dashboard | SportFlow Events Platform'
+    title: 'Panel de Administración | SportFlow Plataforma de Eventos'
   },
   {
     path: '**',

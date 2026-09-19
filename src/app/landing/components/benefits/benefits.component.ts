@@ -17,45 +17,45 @@ interface BenefitItem {
 export class BenefitsComponent {
   benefits: BenefitItem[] = [
     {
-      title: 'Centralized Information',
-      description: 'Single authoritative source of truth for all tournament rosters, match statistics, venues, and administrative records.',
+      title: 'Información Centralizada',
+      description: 'Única fuente de verdad para nóminas de torneos, estadísticas de partidos, sedes y registros administrativos.',
       metric: '100%',
-      metricLabel: 'Data Consolidation',
+      metricLabel: 'Consolidación de Datos',
       icon: 'database'
     },
     {
-      title: 'Dramatically Less Manual Work',
-      description: 'Automated roster verification, automated fixture generation, and automated standings updates eliminate spreadsheets.',
+      title: 'Reducción Drástica de Trabajo Manual',
+      description: 'Validación automatizada de nóminas, generación de calendarios y actualización de tablas que eliminan las hojas de cálculo.',
       metric: '-80%',
-      metricLabel: 'Admin Workload',
+      metricLabel: 'Carga Operativa',
       icon: 'lightning'
     },
     {
-      title: 'Transparent Governance & Audit',
-      description: 'Full traceability for registration approvals, score changes, sanction logs, and disciplinary decisions.',
-      metric: 'Full',
-      metricLabel: 'Auditing Traceability',
+      title: 'Gobernanza Transparente y Auditoría',
+      description: 'Trazabilidad total en aprobación de inscripciones, cambios de marcadores, registros de sanciones y fallos disciplinarios.',
+      metric: 'Total',
+      metricLabel: 'Trazabilidad y Auditoría',
       icon: 'shield'
     },
     {
-      title: 'Optimized Venue Scheduling',
-      description: 'Intelligent conflict detection prevents double-booking pitches, courts, or referee assignments across venues.',
+      title: 'Programación Inteligente de Sedes',
+      description: 'Detección inteligente de conflictos para evitar cruces en canchas, campos o asignación de árbitros entre escenarios.',
       metric: '0',
-      metricLabel: 'Schedule Conflicts',
+      metricLabel: 'Conflictos de Calendario',
       icon: 'calendar'
     },
     {
-      title: 'Scalable Sports Management',
-      description: 'Seamlessly scale from local single-court weekend cups to multi-city institutional leagues with thousands of athletes.',
+      title: 'Gestión Deportiva Escalable',
+      description: 'Escala sin dificultades desde copas de fin de semana en una sola cancha hasta ligas institucionales con miles de deportistas.',
       metric: '&infin;',
-      metricLabel: 'Scalability Potential',
+      metricLabel: 'Potencial de Escalamiento',
       icon: 'cloud'
     },
     {
-      title: 'Consistent & Immediate Data',
-      description: 'Instant updates ensure players, delegates, press, and spectators always see identical, real-time standings.',
-      metric: 'Real-time',
-      metricLabel: 'Standings Sync',
+      title: 'Datos Consistentes e Inmediatos',
+      description: 'Actualizaciones instantáneas para que jugadores, delegados, prensa y aficionados consulten clasificaciones en tiempo real.',
+      metric: 'Tiempo Real',
+      metricLabel: 'Sincronización en Vivo',
       icon: 'sync'
     }
   ];

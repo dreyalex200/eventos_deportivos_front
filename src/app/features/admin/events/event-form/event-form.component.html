@@ -1,0 +1,184 @@
+<div class="modal-backdrop" (click)="onCancel()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()" role="dialog" aria-labelledby="event-form-title" aria-modal="true">
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <div class="icon-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <div>
+          <h3 id="event-form-title">{{ mode === 'edit' ? 'Editar Evento Deportivo' : 'Crear Evento Deportivo' }}</h3>
+          <span class="subtext">
+            {{ mode === 'edit' ? 'PUT /api/v1/events/' + eventData?.id : 'POST /api/v1/events (Requiere rol ADMIN)' }}
+          </span>
+        </div>
+      </div>
+      <button type="button" class="close-modal-btn" (click)="onCancel()" aria-label="Cerrar modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    @if (errorMessage) {
+      <div class="alert alert-error" role="alert">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <p>{{ errorMessage }}</p>
+      </div>
+    }
+
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="modal-form" novalidate>
+      <!-- Title -->
+      <div class="form-group" [class.has-error]="eventForm.get('title')?.invalid && (eventForm.get('title')?.dirty || eventForm.get('title')?.touched)">
+        <label for="event-title" class="form-label">Título del Evento *</label>
+        <input
+          id="event-title"
+          type="text"
+          formControlName="title"
+          class="form-input"
+          placeholder="ej. Torneo Apertura de Fútbol 2026"
+          maxlength="150"
+        />
+        @if (eventForm.get('title')?.invalid && (eventForm.get('title')?.dirty || eventForm.get('title')?.touched)) {
+          <span class="field-error">El título es obligatorio (mín. 3, máx. 150 caracteres).</span>
+        }
+      </div>
+
+      <!-- Description -->
+      <div class="form-group" [class.has-error]="eventForm.get('description')?.invalid && (eventForm.get('description')?.dirty || eventForm.get('description')?.touched)">
+        <label for="event-description" class="form-label">Descripción *</label>
+        <textarea
+          id="event-description"
+          formControlName="description"
+          class="form-input form-textarea"
+          placeholder="ej. Campeonato aficionado categoría libre para equipos locales..."
+          rows="3"
+          maxlength="500"
+        ></textarea>
+        @if (eventForm.get('description')?.invalid && (eventForm.get('description')?.dirty || eventForm.get('description')?.touched)) {
+          <span class="field-error">La descripción es obligatoria (mín. 5, máx. 500 caracteres).</span>
+        }
+      </div>
+
+      <div class="form-grid-2">
+        <!-- Sport Type -->
+        <div class="form-group" [class.has-error]="eventForm.get('sportType')?.invalid && (eventForm.get('sportType')?.dirty || eventForm.get('sportType')?.touched)">
+          <label for="event-sport-type" class="form-label">Disciplina Deportiva *</label>
+          <select id="event-sport-type" formControlName="sportType" class="form-input form-select">
+            @for (opt of sportTypeOptions; track opt.key) {
+              <option [value]="opt.key">{{ opt.label }} ({{ opt.key }})</option>
+            }
+          </select>
+          @if (eventForm.get('sportType')?.invalid && (eventForm.get('sportType')?.dirty || eventForm.get('sportType')?.touched)) {
+            <span class="field-error">Debe seleccionar una disciplina deportiva.</span>
+          }
+        </div>
+
+        <!-- Location -->
+        <div class="form-group" [class.has-error]="eventForm.get('location')?.invalid && (eventForm.get('location')?.dirty || eventForm.get('location')?.touched)">
+          <label for="event-location" class="form-label">Ubicación / Sede *</label>
+          <input
+            id="event-location"
+            type="text"
+            formControlName="location"
+            class="form-input"
+            placeholder="ej. Estadio Central Olímpico"
+            maxlength="150"
+          />
+          @if (eventForm.get('location')?.invalid && (eventForm.get('location')?.dirty || eventForm.get('location')?.touched)) {
+            <span class="field-error">La ubicación es obligatoria (máx. 150 caracteres).</span>
+          }
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <!-- Start Date -->
+        <div class="form-group" [class.has-error]="eventForm.get('startDate')?.invalid && (eventForm.get('startDate')?.dirty || eventForm.get('startDate')?.touched)">
+          <label for="event-start-date" class="form-label">Fecha y Hora de Inicio *</label>
+          <input
+            id="event-start-date"
+            type="datetime-local"
+            formControlName="startDate"
+            class="form-input"
+          />
+          @if (eventForm.get('startDate')?.invalid && (eventForm.get('startDate')?.dirty || eventForm.get('startDate')?.touched)) {
+            <span class="field-error">La fecha de inicio es obligatoria.</span>
+          }
+        </div>
+
+        <!-- End Date -->
+        <div class="form-group" [class.has-error]="(eventForm.get('endDate')?.invalid && (eventForm.get('endDate')?.dirty || eventForm.get('endDate')?.touched)) || (eventForm.errors?.['dateRangeInvalid'] && (eventForm.get('endDate')?.dirty || eventForm.get('endDate')?.touched))">
+          <label for="event-end-date" class="form-label">Fecha y Hora de Finalización *</label>
+          <input
+            id="event-end-date"
+            type="datetime-local"
+            formControlName="endDate"
+            class="form-input"
+          />
+          @if (eventForm.get('endDate')?.errors?.['required'] && (eventForm.get('endDate')?.dirty || eventForm.get('endDate')?.touched)) {
+            <span class="field-error">La fecha de finalización es obligatoria.</span>
+          }
+          @if (eventForm.errors?.['dateRangeInvalid'] && !eventForm.get('endDate')?.errors?.['required'] && (eventForm.get('endDate')?.dirty || eventForm.get('endDate')?.touched)) {
+            <span class="field-error">La fecha de finalización debe ser posterior a la de inicio.</span>
+          }
+        </div>
+      </div>
+
+      <!-- Max Participants -->
+      <div class="form-group" [class.has-error]="eventForm.get('maxParticipants')?.invalid && (eventForm.get('maxParticipants')?.dirty || eventForm.get('maxParticipants')?.touched)">
+        <label for="event-max-participants" class="form-label">Capacidad Máxima de Participantes *</label>
+        <input
+          id="event-max-participants"
+          type="number"
+          min="2"
+          max="10000"
+          formControlName="maxParticipants"
+          class="form-input"
+          placeholder="ej. 16"
+        />
+        @if (eventForm.get('maxParticipants')?.invalid && (eventForm.get('maxParticipants')?.dirty || eventForm.get('maxParticipants')?.touched)) {
+          <span class="field-error">Indique una cantidad válida de participantes (mínimo 2).</span>
+        }
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="onCancel()"
+          [disabled]="isSubmitting"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="isSubmitting || eventForm.invalid"
+          id="btn-submit-event"
+        >
+          @if (isSubmitting) {
+            <span class="spinner-sm"></span>
+            <span>Guardando Evento...</span>
+          } @else {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            <span>{{ mode === 'edit' ? 'Actualizar Evento' : 'Guardar Evento' }}</span>
+          }
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

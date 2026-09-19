@@ -17,47 +17,47 @@ interface UserRole {
 export class UsersComponent {
   roles: UserRole[] = [
     {
-      roleName: 'Administrators',
-      badge: 'System Governance',
-      description: 'Complete platform configuration, user access management, master rules definition, and security parameters.',
+      roleName: 'Administradores',
+      badge: 'Gobernanza del Sistema',
+      description: 'Configuración integral de la plataforma, gestión de accesos de usuarios, definición de reglamentos maestros y parámetros de seguridad.',
       responsibilities: [
-        'Master sport & rule set creation',
-        'User permission & role provisioning',
-        'Venue & facility catalog management'
+        'Creación de deportes y reglamentos maestros',
+        'Asignación de permisos y roles de usuario',
+        'Gestión del catálogo de sedes e instalaciones'
       ],
       icon: 'admin'
     },
     {
-      roleName: 'Operators & Field Directors',
-      badge: 'Day-to-Day Operations',
-      description: 'Manage tournament execution, team roster approvals, match scheduling, score inputs, and venue assignments.',
+      roleName: 'Operadores y Directores de Campo',
+      badge: 'Operaciones Diarias',
+      description: 'Gestión de la ejecución de torneos, aprobación de nóminas de equipos, programación de partidos, registro de resultados y asignación de sedes.',
       responsibilities: [
-        'Registration validation & team review',
-        'Pitch match scheduling & referee logs',
-        'Real-time score & standings entry'
+        'Validación de inscripciones y revisión de equipos',
+        'Programación de partidos y actas arbitrales',
+        'Registro en tiempo real de marcadores y clasificaciones'
       ],
       icon: 'operator'
     },
     {
-      roleName: 'Auditors & Compliance Officers',
-      badge: 'Verification & Traceability',
-      description: 'Review historical logs, participant eligibility, legal document authenticity, and sanction records.',
+      roleName: 'Auditores y Oficiales de Cumplimiento',
+      badge: 'Verificación y Trazabilidad',
+      description: 'Revisión de registros históricos, elegibilidad de participantes, autenticidad de documentos legales y sanciones.',
       responsibilities: [
-        'Document authenticity verification',
-        'System audit trail inspection',
-        'Official compliance certification'
+        'Verificación de autenticidad documental',
+        'Inspección de pistas de auditoría del sistema',
+        'Certificación oficial de cumplimiento'
       ],
       icon: 'auditor'
     }
   ];
 
   targetInstitutions = [
-    'Government Entities & Sports Secretariats',
-    'Municipalities & Local Councils',
-    'Educational Institutions & Universities',
-    'Sports Clubs & Athletic Associations',
-    'Sports Federations & Regional Leagues',
-    'Independent Tournament Organizers',
-    'Corporate & Private Entities'
+    'Entidades gubernamentales y secretarías de deportes',
+    'Municipios y consejos locales',
+    'Instituciones educativas y universidades',
+    'Clubes deportivos y asociaciones atléticas',
+    'Federaciones deportivas y ligas regionales',
+    'Organizadores independientes de torneos',
+    'Empresas y entidades privadas'
   ];
 }

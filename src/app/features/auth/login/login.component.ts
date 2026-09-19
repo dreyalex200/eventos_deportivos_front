@@ -61,13 +61,13 @@ export class LoginComponent {
         if (err.error?.error?.details) {
           this.errorMessage.set(err.error.error.details);
         } else if (err.status === 401) {
-          this.errorMessage.set('Invalid email or password');
+          this.errorMessage.set('Correo electrónico o contraseña inválidos');
         } else if (err.status === 403) {
-          this.errorMessage.set('Access denied. Administrator privileges are required.');
+          this.errorMessage.set('Acceso denegado. Se requieren privilegios de administrador.');
         } else if (err.status === 0) {
-          this.errorMessage.set('Cannot connect to authentication service. Please ensure the server is online.');
+          this.errorMessage.set('No se puede conectar con el servicio de autenticación. Verifica que el servidor esté activo.');
         } else {
-          this.errorMessage.set('Authentication failed. Please check your credentials and try again.');
+          this.errorMessage.set('Error de autenticación. Por favor, verifica tus credenciales e intenta nuevamente.');
         }
       }
     });

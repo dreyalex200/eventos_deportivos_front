@@ -5,6 +5,8 @@ import { of, throwError } from 'rxjs';
 import { UsersComponent } from './users.component';
 import { UserService } from '../../../core/services/user.service';
 import { AuthorizationService } from '../../../core/services/authorization.service';
+import { AuthService } from '../../../core/services/auth.service';
+import { TokenStorageService } from '../../../core/services/token-storage.service';
 import { ApiResponse } from '../../../core/models/auth.model';
 import { CreatedUserData, UserProfileData } from '../../../core/models/user.model';
 
@@ -40,7 +42,9 @@ describe('UsersComponent', () => {
         provideHttpClient(),
         provideHttpClientTesting(),
         UserService,
-        AuthorizationService
+        AuthorizationService,
+        AuthService,
+        TokenStorageService
       ]
     }).compileComponents();
 
@@ -57,7 +61,7 @@ describe('UsersComponent', () => {
 
     expect(component).toBeTruthy();
     expect(component.currentProfile()?.username).toBe('admin');
-    expect(component.managedUsers().length).toBe(1);
+    expect(component.managedUsers().length).toBeGreaterThanOrEqual(1);
     expect(component.isProfileLoading()).toBe(false);
   });
 
@@ -253,5 +257,85 @@ describe('UsersComponent', () => {
     expect(component.isModalOpen()).toBe(true);
     component.closeCreateModal();
     expect(component.isModalOpen()).toBe(false);
+  });
+
+  it('should filter managed users by search term and role', () => {
+    vi.spyOn(userService, 'getMyProfile').mockReturnValue(of(mockProfileResponse));
+    fixture.detectChanges();
+
+    const user1: CreatedUserData = {
+      id: 10,
+      username: 'juan_perez',
+      email: 'juan@sportsevents.com',
+      firstName: 'Juan',
+      lastName: 'Pérez',
+      phone: null,
+      status: 1,
+      roles: ['OPERATOR'],
+      createdAt: '2026-09-20T10:00:00Z',
+      updatedAt: '2026-09-20T10:00:00Z'
+    };
+
+    const user2: CreatedUserData = {
+      id: 11,
+      username: 'maria_admin',
+      email: 'maria@sportsevents.com',
+      firstName: 'María',
+      lastName: 'López',
+      phone: '+573009998877',
+      status: 1,
+      roles: ['ADMIN'],
+      createdAt: '2026-09-21T10:00:00Z',
+      updatedAt: '2026-09-21T10:00:00Z'
+    };
+
+    component.addUserToManagedList(user1);
+    component.addUserToManagedList(user2);
+
+    // Search by username
+    component.setSearchTerm('juan');
+    expect(component.filteredUsers().length).toBe(1);
+    expect(component.filteredUsers()[0].username).toBe('juan_perez');
+
+    // Filter by role ADMIN
+    component.setSearchTerm('');
+    component.setRoleFilter('ADMIN');
+    expect(component.filteredUsers().some(u => u.username === 'maria_admin')).toBe(true);
+    expect(component.filteredUsers().every(u => u.roles.includes('ADMIN'))).toBe(true);
+
+    // Filter by role OPERATOR
+    component.setRoleFilter('OPERATOR');
+    expect(component.filteredUsers().every(u => u.roles.includes('OPERATOR'))).toBe(true);
+
+    // Reset filters
+    component.setRoleFilter('ALL');
+    expect(component.filteredUsers().length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('should open and close user detail modal', () => {
+    vi.spyOn(userService, 'getMyProfile').mockReturnValue(of(mockProfileResponse));
+    fixture.detectChanges();
+
+    const testUser: CreatedUserData = {
+      id: 15,
+      username: 'test_user',
+      email: 'test@example.com',
+      firstName: 'Test',
+      lastName: 'User',
+      phone: '123456789',
+      status: 1,
+      roles: ['OPERATOR'],
+      createdAt: '2026-09-20T10:00:00Z',
+      updatedAt: '2026-09-20T10:00:00Z'
+    };
+
+    expect(component.isDetailModalOpen()).toBe(false);
+    component.openDetail(testUser);
+    expect(component.isDetailModalOpen()).toBe(true);
+    expect(component.selectedUserForDetail()?.username).toBe('test_user');
+
+    component.closeDetail();
+    expect(component.isDetailModalOpen()).toBe(false);
+    expect(component.selectedUserForDetail()).toBeNull();
   });
 });

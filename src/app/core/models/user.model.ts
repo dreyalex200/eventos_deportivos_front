@@ -8,7 +8,7 @@ export interface CreateUserRequest {
   roles?: string[];
 }
 
-export interface CreatedUserData {
+export interface UserResponse {
   id: number;
   username: string;
   email: string;
@@ -21,6 +21,8 @@ export interface CreatedUserData {
   updatedAt: string;
 }
 
+export type CreatedUserData = UserResponse;
+
 export interface UserProfileData {
   id: number;
   username: string;
@@ -32,6 +34,7 @@ export interface UserProfileData {
   roles: string[];
   lastLoginAt?: string | null;
   createdAt: string;
+  updatedAt?: string;
 }
 
 export interface JwtTokenPayload {

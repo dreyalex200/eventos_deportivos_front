@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ApiResponse } from '../models/auth.model';
-import { CreatedUserData, CreateUserRequest, UserProfileData } from '../models/user.model';
+import { CreatedUserData, CreateUserRequest, UserProfileData, UserResponse } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class UserService {
    * Endpoint: POST /api/v1/users (or /api/v1/users/protected/users)
    * Requires permission: USERS_CREATE
    */
-  createUser(payload: CreateUserRequest): Observable<ApiResponse<CreatedUserData>> {
-    return this.http.post<ApiResponse<CreatedUserData>>(this.baseUrl, payload);
+  createUser(payload: CreateUserRequest): Observable<ApiResponse<UserResponse>> {
+    return this.http.post<ApiResponse<UserResponse>>(this.baseUrl, payload);
   }
 
   /**
